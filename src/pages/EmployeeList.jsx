@@ -1,83 +1,130 @@
-import React, { useState, useEffect, useRef } from "react";
-import { Link } from "react-router-dom";
-
-// Données d'exemple
-const sampleEmployees = [
-  {
-    firstName: "John",
-    lastName: "Doe",
-    dateOfBirth: "01/15/1985",
-    startDate: "06/01/2020",
-    department: "Engineering",
-    street: "123 Main St",
-    city: "New York",
-    state: "NY",
-    zipCode: "10001",
-  },
-  {
-    firstName: "Jane",
-    lastName: "Smith",
-    dateOfBirth: "03/22/1990",
-    startDate: "08/15/2021",
-    department: "Marketing",
-    street: "456 Oak Ave",
-    city: "Los Angeles",
-    state: "CA",
-    zipCode: "90210",
-  },
-];
+import React from "react";
+import { useSelector } from "react-redux";
 
 function EmployeeList() {
-  const tableRef = useRef(null);
-
-  useEffect(() => {
-    // Initialiser les données si localStorage est vide
-    const existingEmployees = localStorage.getItem("employees");
-    if (!existingEmployees) {
-      localStorage.setItem("employees", JSON.stringify(sampleEmployees));
-    }
-
-    // Initialiser DataTables
-    if (window.jQuery && tableRef.current) {
-      const employees = JSON.parse(localStorage.getItem("employees")) || [];
-
-      $(tableRef.current).DataTable({
-        data: employees,
-        columns: [
-          { title: "First Name", data: "firstName" },
-          { title: "Last Name", data: "lastName" },
-          { title: "Start Date", data: "startDate" },
-          { title: "Department", data: "department" },
-          { title: "Date of Birth", data: "dateOfBirth" },
-          { title: "Street", data: "street" },
-          { title: "City", data: "city" },
-          { title: "State", data: "state" },
-          { title: "Zip Code", data: "zipCode" },
-        ],
-        destroy: true,
-        responsive: true,
-        pageLength: 10,
-      });
-    }
-
-    return () => {
-      if (
-        window.jQuery &&
-        tableRef.current &&
-        $.fn.DataTable.isDataTable(tableRef.current)
-      ) {
-        $(tableRef.current).DataTable().destroy();
-      }
-    };
-  }, []);
+  // Récupérer les employés depuis Redux
+  const employees = useSelector((state) => state.employees.employees);
 
   return (
-    <div id="employee-div" className="container">
+    <div>
       <h1>Current Employees</h1>
-      <table id="employee-table" className="display" ref={tableRef}></table>
-      <Link to="/" className="nav-link">
-        Home
-      </Link>
+
+      {employees.length === 0 ? (
+        <p>No employees found. Create your first employee!</p>
+      ) : (
+        <div style={{ overflowX: "auto" }}>
+          <table
+            style={{
+              width: "100%",
+              borderCollapse: "collapse",
+              marginTop: "20px",
+            }}
+          >
+            <thead>
+              <tr style={{ backgroundColor: "#f2f2f2" }}>
+                <th
+                  style={{
+                    padding: "12px",
+                    border: "1px solid #ddd",
+                    textAlign: "left",
+                  }}
+                >
+                  First Name
+                </th>
+                <th
+                  style={{
+                    padding: "12px",
+                    border: "1px solid #ddd",
+                    textAlign: "left",
+                  }}
+                >
+                  Last Name
+                </th>
+                <th
+                  style={{
+                    padding: "12px",
+                    border: "1px solid #ddd",
+                    textAlign: "left",
+                  }}
+                >
+                  Date of Birth
+                </th>
+                <th
+                  style={{
+                    padding: "12px",
+                    border: "1px solid #ddd",
+                    textAlign: "left",
+                  }}
+                >
+                  Start Date
+                </th>
+                <th
+                  style={{
+                    padding: "12px",
+                    border: "1px solid #ddd",
+                    textAlign: "left",
+                  }}
+                >
+                  Department
+                </th>
+                <th
+                  style={{
+                    padding: "12px",
+                    border: "1px solid #ddd",
+                    textAlign: "left",
+                  }}
+                >
+                  Street
+                </th>
+                <th
+                  style={{
+                    padding: "12px",
+                    border: "1px solid #ddd",
+                    textAlign: "left",
+                  }}
+                >
+                  City
+                </th>
+                <th
+                  style={{
+                    padding: "12px",
+                    border: "1px solid #ddd",
+                    textAlign: "left",
+                  }}
+                >
+                  State
+                </th>
+                <th
+                  style={{
+                    padding: "12px",
+                    border: "1px solid #ddd",
+                    textAlign: "left",
+                  }}
+                >
+                  Zip Code
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              {employees.map((employee, index) => (
+                <tr key={index} style={{ borderBottom: "1px solid #ddd" }}>
+                  <td style={{ padding: "12px" }}>{employee.firstName}</td>
+                  <td style={{ padding: "12px" }}>{employee.lastName}</td>
+                  <td style={{ padding: "12px" }}>{employee.dateOfBirth}</td>
+                  <td style={{ padding: "12px" }}>{employee.startDate}</td>
+                  <td style={{ padding: "12px" }}>{employee.department}</td>
+                  <td style={{ padding: "12px" }}>{employee.street}</td>
+                  <td style={{ padding: "12px" }}>{employee.city}</td>
+                  <td style={{ padding: "12px" }}>{employee.state}</td>
+                  <td style={{ padding: "12px" }}>{employee.zipCode}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      )}
+
+      <p style={{ marginTop: "20px" }}>Total employees: {employees.length}</p>
     </div>
   );
 }

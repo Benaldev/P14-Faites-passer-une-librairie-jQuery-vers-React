@@ -1,36 +1,36 @@
-import React from "react";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import CreateEmployee from "./components/CreateEmployee";
-import EmployeeList from "./components/EmployeeList";
-import "./App.css";
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import CreateEmployee from "./pages/CreateEmployee";
+import EmployeeList from "./pages/EmployeeList";
 
 function App() {
   return (
-    <Router>
-      <div className="App">
+    <BrowserRouter>
+      <div style={{ padding: "20px" }}>
+        <nav style={{ marginBottom: "30px" }}>
+          <Link
+            to="/"
+            style={{
+              marginRight: "15px",
+              textDecoration: "none",
+              color: "#007bff",
+            }}
+          >
+            Create Employee
+          </Link>
+          <Link
+            to="/employees"
+            style={{ textDecoration: "none", color: "#007bff" }}
+          >
+            View Employees
+          </Link>
+        </nav>
+
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/create-employee" element={<CreateEmployee />} />
-          <Route path="/employee-list" element={<EmployeeList />} />
+          <Route path="/" element={<CreateEmployee />} />
+          <Route path="/employees" element={<EmployeeList />} />
         </Routes>
       </div>
-    </Router>
-  );
-}
-
-function Home() {
-  return (
-    <div className="title">
-      <h1>HRnet</h1>
-      <div className="container">
-        <Link to="/employee-list" className="nav-link">
-          View Current Employees
-        </Link>
-        <Link to="/create-employee" className="nav-link">
-          Create New Employee
-        </Link>
-      </div>
-    </div>
+    </BrowserRouter>
   );
 }
 

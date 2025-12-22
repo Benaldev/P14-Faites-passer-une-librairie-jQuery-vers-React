@@ -7,7 +7,7 @@ function Dropdown({ label, options, defaultValue = "", onChange }) {
 
   useEffect(() => {
     onChange(selectedValue);
-  }, [selectedValue, onChange]);
+  }, [selectedValue]);
 
   const handleChange = (e) => {
     const value = e.target.value;

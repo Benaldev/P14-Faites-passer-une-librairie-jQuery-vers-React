@@ -287,11 +287,11 @@ function CreateEmployee() {
 
       {/* Modal de confirmation */}
       <Modal
-        opened={modalOpen}
+        isOpen={modalOpen}
         onClose={handleCloseModal}
         title="Success!"
         content="Employee has been created successfully."
-        btnText="Close"
+        btnText="X"
       />
     </div>
   );

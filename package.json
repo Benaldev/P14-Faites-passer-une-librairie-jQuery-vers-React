@@ -5,9 +5,9 @@
   "type": "module",
   "description": "application Hrnet ameliorée",
   "keywords": [
-    "hrnet"
+    "HRnet"
   ],
-  "author": "Walid BEN SALAH",
+  "author": "BEN SALAH Walid",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -16,7 +16,7 @@
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.11.1",
-    "benal18-modal": "^1.0.5",
+    "benal18-modal": "^1.0.8",
     "datatables.net": "^2.3.4",
     "jquery": "^3.7.1",
     "jquery-datetimepicker": "^2.5.21",

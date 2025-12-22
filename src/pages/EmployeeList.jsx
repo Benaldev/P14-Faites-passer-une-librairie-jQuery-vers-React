@@ -2,7 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 
 function EmployeeList() {
-  // récupérer les employés depuis Redux
+  // Récupérer les employés depuis Redux
   const employees = useSelector((state) => state.employees.employees);
 
   return (

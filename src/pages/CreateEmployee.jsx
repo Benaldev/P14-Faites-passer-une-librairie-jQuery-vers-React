@@ -217,6 +217,9 @@ function CreateEmployee() {
             padding: "20px",
             marginBottom: "20px",
             borderRadius: "5px",
+            display: "flex",
+            flexDirection: "column",
+            gap: "10px",
           }}
         >
           <legend style={{ fontWeight: "bold", padding: "0 10px" }}>
@@ -242,6 +245,7 @@ function CreateEmployee() {
           />
 
           <Dropdown
+            id="state"
             label="State"
             options={states}
             defaultValue=""
@@ -261,6 +265,7 @@ function CreateEmployee() {
         {/* Département */}
         <div style={{ marginBottom: "20px" }}>
           <Dropdown
+            id="department"
             label="Department"
             options={departments}
             defaultValue=""

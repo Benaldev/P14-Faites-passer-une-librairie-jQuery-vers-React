@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-function Dropdown({ label, options, defaultValue = "", onChange }) {
+function Dropdown({ id, label, options, defaultValue = "", onChange }) {
   const [selectedValue, setSelectedValue] = useState(
     defaultValue || options[0]
   );
@@ -17,10 +17,11 @@ function Dropdown({ label, options, defaultValue = "", onChange }) {
 
   return (
     <div>
-      <label>
+      <label htmlFor={id}>
         <strong>{label}</strong>
       </label>
       <select
+        id={id}
         value={selectedValue}
         onChange={handleChange}
         className="dropdown"

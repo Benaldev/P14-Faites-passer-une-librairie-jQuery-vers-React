@@ -1,0 +1,9 @@
+# Autorise tous les moteurs de recherche
+User-agent: *
+Disallow:
+
+# Empêche l'indexation de certains fichiers ou dossiers inutiles
+Disallow: /node_modules/
+Disallow: /src/
+Disallow: /vite.svg
+Disallow: /dist/

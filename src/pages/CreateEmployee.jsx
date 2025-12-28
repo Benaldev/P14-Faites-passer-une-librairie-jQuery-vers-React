@@ -3,8 +3,8 @@ import { useDispatch } from "react-redux";
 import { addEmployee } from "../redux/store";
 import DataInput from "../components/DataInput";
 import Dropdown from "../components/Dropdown";
-import DatePicker from "../components/DatePicker";
 import Modal from "benal18-modal";
+import CustomDatePicker from "../components/DatePicker.jsx";
 
 const departments = [
   "Sales",
@@ -187,7 +187,9 @@ function CreateEmployee() {
           >
             Date of Birth
           </label>
-          <DatePicker
+          <CustomDatePicker
+            id="dateOfBirth"
+            label="Date of Birth"
             initialDate={formData.dateOfBirth}
             onDateChange={(date) => handleDateChange(date, "dateOfBirth")}
           />
@@ -204,7 +206,9 @@ function CreateEmployee() {
           >
             Start Date
           </label>
-          <DatePicker
+          <CustomDatePicker
+            id="startDate"
+            label="Start Date"
             initialDate={formData.startDate}
             onDateChange={(date) => handleDateChange(date, "startDate")}
           />
@@ -278,8 +282,8 @@ function CreateEmployee() {
           type="submit"
           style={{
             padding: "10px 20px",
-            backgroundColor: "#007bff",
-            color: "white",
+            backgroundColor: "grey",
+            color: "black",
             border: "none",
             borderRadius: "4px",
             cursor: "pointer",

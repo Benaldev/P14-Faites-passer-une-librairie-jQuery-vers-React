@@ -12,15 +12,11 @@ function App() {
             style={{
               marginRight: "15px",
               textDecoration: "none",
-              color: "#007bff",
             }}
           >
             Create Employee
           </Link>
-          <Link
-            to="/employees"
-            style={{ textDecoration: "none", color: "#007bff" }}
-          >
+          <Link to="/employees" style={{ textDecoration: "none" }}>
             View Employees
           </Link>
         </nav>

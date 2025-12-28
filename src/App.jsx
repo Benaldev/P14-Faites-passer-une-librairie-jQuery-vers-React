@@ -5,7 +5,19 @@ import EmployeeList from "./pages/EmployeeList";
 function App() {
   return (
     <BrowserRouter>
-      <div style={{ padding: "20px" }}>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "flex-start",
+          alignItems: "center",
+          minHeight: "100vh",
+          width: "100%",
+          padding: "20px",
+          boxSizing: "border-box",
+        }}
+      >
+        <h1>HR net</h1>
         <nav style={{ marginBottom: "30px" }}>
           <Link
             to="/"

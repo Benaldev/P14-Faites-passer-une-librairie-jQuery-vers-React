@@ -1,6 +1,6 @@
 import React from "react";
 
-function DataInput({ id, type, name, label, onChange }) {
+function DataInput({ id, type, name, label, onChange, inputStyle }) {
   return (
     <>
       <label className="data-input-label" htmlFor={id}>
@@ -12,6 +12,7 @@ function DataInput({ id, type, name, label, onChange }) {
         type={type}
         name={name}
         onChange={onChange}
+        style={inputStyle}
       />
     </>
   );

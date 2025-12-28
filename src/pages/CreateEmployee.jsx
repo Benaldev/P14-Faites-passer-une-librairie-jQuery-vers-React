@@ -149,11 +149,11 @@ function CreateEmployee() {
 
   return (
     <div>
-      <h1>Create Employee</h1>
+      <h2>Create Employee</h2>
 
       <form onSubmit={handleSubmit} style={{ maxWidth: "600px" }}>
         {/* Nom et Prénom */}
-        <div style={{ display: "flex", gap: "20px", marginBottom: "20px" }}>
+        <div style={{ display: "flex", gap: "50px", marginBottom: "30px" }}>
           <div style={{ flex: 1 }}>
             <DataInput
               id="firstName"
@@ -162,6 +162,7 @@ function CreateEmployee() {
               label="First Name"
               onChange={handleInputChange}
               value={formData.firstName}
+              inputStyle={{ width: "100%" }}
             />
           </div>
           <div style={{ flex: 1 }}>
@@ -172,6 +173,7 @@ function CreateEmployee() {
               label="Last Name"
               onChange={handleInputChange}
               value={formData.lastName}
+              inputStyle={{ width: "100%" }}
             />
           </div>
         </div>
@@ -184,9 +186,7 @@ function CreateEmployee() {
               marginBottom: "5px",
               fontWeight: "bold",
             }}
-          >
-            Date of Birth
-          </label>
+          ></label>
           <CustomDatePicker
             id="dateOfBirth"
             label="Date of Birth"
@@ -203,9 +203,7 @@ function CreateEmployee() {
               marginBottom: "5px",
               fontWeight: "bold",
             }}
-          >
-            Start Date
-          </label>
+          ></label>
           <CustomDatePicker
             id="startDate"
             label="Start Date"

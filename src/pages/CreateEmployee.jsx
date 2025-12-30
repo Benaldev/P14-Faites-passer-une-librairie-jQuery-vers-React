@@ -127,19 +127,6 @@ function CreateEmployee() {
 
     // Ouvrir la modal
     setModalOpen(true);
-
-    // Réinitialiser le formulaire
-    setFormData({
-      firstName: "",
-      lastName: "",
-      dateOfBirth: new Date(),
-      startDate: new Date(),
-      street: "",
-      city: "",
-      state: "",
-      zipCode: "",
-      department: "",
-    });
   };
 
   // Fermer la modal

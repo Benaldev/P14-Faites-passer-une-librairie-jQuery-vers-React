@@ -18,7 +18,10 @@ function CustomDatePicker({
   };
 
   return (
-    <div className="custom-datepicker">
+    <div
+      className="custom-datepicker"
+      style={{ display: "flex", flexDirection: "column", gap: "5px" }}
+    >
       {label && <label htmlFor={id}>{label}</label>}
       <DatePicker
         id={id}

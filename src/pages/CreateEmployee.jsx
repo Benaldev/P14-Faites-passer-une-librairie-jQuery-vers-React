@@ -127,7 +127,7 @@ function CreateEmployee() {
     for (const field of requiredFields) {
       if (
         !formData[field] ||
-        (typeof formData[field] === "string" && formData[field].trim() === "")
+        (typeof formData[field] === "string" && formData[field].trim() === "") // doit être une string et on enlève les espaces en début et fin
       ) {
         alert("Please fill all required fields.");
         return; // stoppe la soumission
@@ -291,7 +291,7 @@ function CreateEmployee() {
           type="submit"
           style={{
             padding: "10px 20px",
-            backgroundColor: "grey",
+            backgroundColor: "#d6d6d6",
             color: "black",
             border: "none",
             borderRadius: "4px",

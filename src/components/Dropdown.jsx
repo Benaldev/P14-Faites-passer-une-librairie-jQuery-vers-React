@@ -16,7 +16,7 @@ function Dropdown({ id, label, options, defaultValue = "", onChange }) {
   };
 
   return (
-    <div>
+    <div style={{ display: "flex", flexDirection: "column", gap: "5px" }}>
       <label htmlFor={id}>
         <strong>{label}</strong>
       </label>
@@ -25,6 +25,7 @@ function Dropdown({ id, label, options, defaultValue = "", onChange }) {
         value={selectedValue}
         onChange={handleChange}
         className="dropdown"
+        style={{ width: "200px", padding: "3px" }}
       >
         {options.map((option, index) => (
           <option key={index} value={option}>

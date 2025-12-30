@@ -22,6 +22,7 @@
     "jquery-datetimepicker": "^2.5.21",
     "jquery-ui": "^1.14.1",
     "react": "^19.1.1",
+    "react-data-table-component": "^7.7.0",
     "react-datepicker": "^9.0.0",
     "react-dom": "^19.1.1",
     "react-redux": "^9.2.0",

@@ -115,6 +115,25 @@ function CreateEmployee() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    // Vérifier que tous les champs sont remplis
+    const requiredFields = [
+      "firstName",
+      "lastName",
+      "street",
+      "city",
+      "zipCode",
+    ];
+
+    for (const field of requiredFields) {
+      if (
+        !formData[field] ||
+        (typeof formData[field] === "string" && formData[field].trim() === "")
+      ) {
+        alert("Please fill all required fields.");
+        return; // stoppe la soumission
+      }
+    }
+
     // Formater les dates
     const employeeToSave = {
       ...formData,
@@ -150,6 +169,7 @@ function CreateEmployee() {
               onChange={handleInputChange}
               value={formData.firstName}
               inputStyle={{ width: "100%" }}
+              required
             />
           </div>
           <div style={{ flex: 1 }}>
@@ -161,6 +181,7 @@ function CreateEmployee() {
               onChange={handleInputChange}
               value={formData.lastName}
               inputStyle={{ width: "100%" }}
+              required
             />
           </div>
         </div>
@@ -222,6 +243,7 @@ function CreateEmployee() {
             label="Street"
             onChange={handleInputChange}
             value={formData.street}
+            required
           />
 
           <DataInput
@@ -231,6 +253,7 @@ function CreateEmployee() {
             label="City"
             onChange={handleInputChange}
             value={formData.city}
+            required
           />
 
           <Dropdown
@@ -248,6 +271,7 @@ function CreateEmployee() {
             label="Zip Code"
             onChange={handleInputChange}
             value={formData.zipCode}
+            required
           />
         </fieldset>
 

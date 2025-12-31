@@ -9,52 +9,71 @@ function EmployeeList() {
   // État pour la recherche
   const [searchTerm, setSearchTerm] = useState("");
 
+  // Helpers pour le tri
+  const caseInsensitiveSort = (key) => (a, b) =>
+    a[key].toLowerCase().localeCompare(b[key].toLowerCase());
+
+  const dateSort = (key) => (a, b) =>
+    new Date(a[key].split("/").reverse().join("-")) -
+    new Date(b[key].split("/").reverse().join("-"));
+
+  const numericSort = (key) => (a, b) => Number(a[key]) - Number(b[key]);
+
   // Colonnes du tableau
   const columns = [
     {
       name: "First Name",
       selector: (row) => row.firstName,
       sortable: true,
+      sortFunction: caseInsensitiveSort("firstName"),
     },
     {
       name: "Last Name",
       selector: (row) => row.lastName,
       sortable: true,
+      sortFunction: caseInsensitiveSort("lastName"),
     },
     {
       name: "Date of Birth",
       selector: (row) => row.dateOfBirth,
       sortable: true,
+      sortFunction: dateSort("dateOfBirth"),
     },
     {
       name: "Start Date",
       selector: (row) => row.startDate,
       sortable: true,
+      sortFunction: dateSort("startDate"),
     },
     {
       name: "Department",
       selector: (row) => row.department,
       sortable: true,
+      sortFunction: caseInsensitiveSort("department"),
     },
     {
       name: "Street",
       selector: (row) => row.street,
       sortable: true,
+      sortFunction: caseInsensitiveSort("street"),
     },
     {
       name: "City",
       selector: (row) => row.city,
       sortable: true,
+      sortFunction: caseInsensitiveSort("city"),
     },
     {
       name: "State",
       selector: (row) => row.state,
       sortable: true,
+      sortFunction: caseInsensitiveSort("state"),
     },
     {
       name: "Zip Code",
       selector: (row) => row.zipCode,
       sortable: true,
+      sortFunction: numericSort("zipCode"),
     },
   ];
 

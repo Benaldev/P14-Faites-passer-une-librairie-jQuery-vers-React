@@ -122,12 +122,14 @@ function CreateEmployee() {
       "street",
       "city",
       "zipCode",
+      "state",
+      "department",
     ];
 
     for (const field of requiredFields) {
       if (
-        !formData[field] ||
-        (typeof formData[field] === "string" && formData[field].trim() === "") // doit être une string et on enlève les espaces en début et fin
+        !formData[field] || // si c'est vide ou
+        (typeof formData[field] === "string" && formData[field].trim() === "") // si c'est une string et qu'en enlevant les espaces en début et fin c'est tourjours ""
       ) {
         alert("Please fill all required fields.");
         return; // stoppe la soumission
